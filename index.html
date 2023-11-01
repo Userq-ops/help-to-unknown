@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пример сайта с Typed.js</title>
+    <link rel="stylesheet" href="ффф.css">
+</head>
+<style>
+    .btn {
+    cursor: pointer;
+    position: relative;
+    padding: 10px 20px;
+    background: rgb(255, 249, 246);
+    font-size: 28px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    transition: all 1s;
+}
+.btn:after, .btn:before {
+    content: " ";
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    border: 0px solid #fff;
+    transition: all 1s;
+}
+.btn:after {
+    top: -1px;
+    left: -1px;
+    border-top: 5px solid black;
+    border-left: 5px solid black;
+}
+.btn:before {
+    bottom: -1px;
+    right: -1px;
+    border-bottom: 5px solid black;
+    border-right: 5px solid black;
+}
+.btn:hover {
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+.btn:hover:before, .btn:hover:after {
+    width: 100%;
+    height: 100%;
+}
+.data-container {
+    background: #ffebee;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+</style>
+<body>
+    <div class="container">
+        <h1>Помочь неизвестному</h1>
+        <p id="typed-output"></p>
+    </div>
+    <button onclick="showAlert()" class="btn">Помочь</button>
+    <button onclick="showAlert2()" class="btn">Оставить</button>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+
+document.addEventListener('DOMContentLoaded', function () {
+    const options = {
+        strings: ["Алло", "Вытащи меня отсюда", "Че ты стоишь???"],
+        typeSpeed: 50,
+        backSpeed: 25,
+        startDelay: 1000,
+        backDelay: 1000,
+        loop: true,
+    };
+
+    const typed = new Typed('#typed-output', options);
+});
+
+
+function showAlert() {
+  alert("Спасибо, я теперь обрел свободу!");
+}
+function showAlert2() {
+  alert("Ну и сволочь ты Человек-Паук!");
+}
+    </script>
+</body>
+</html>
